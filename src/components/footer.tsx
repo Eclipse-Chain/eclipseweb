@@ -29,41 +29,45 @@ export default function Component() {
       {showComingSoon && (
         <motion.div 
           animate={{ y: -20 }} 
-          className="absolute bottom-20  left-0 right-0 mx-auto flex items-center justify-center z-20"
+          className="absolute bottom-20 left-0 right-0 mx-auto flex items-center justify-center z-20"
         >
-          <div className="font-bold text-[15px] bg-black border-2 border-white text-white rounded-[10px] p-2">
+          <div className="font-bold text-[15px] bg-black/90 border border-[#E6FF00] text-[#E6FF00] rounded-lg p-2">
             {comingSoonMessage}
           </div>
         </motion.div>
       )}
 
-      <footer className="fixed border-t-2 border-[#FF0420] bottom-0 w-full  bg-white">
-        <nav className="container flex h-16 items-center justify-around">
-          <FaChartSimple
-            className="opacity-100 cursor-pointer w-6 h-6"
-            color='#FFA8A8'
-            onClick={() => handleClick("chart", "Leaderboard Coming Soon")}
-          />
-          <Link 
-            href="/" 
-            className="relative"
-            onClick={() => setActive("home")}
-          >
-            <Home 
-              className="w-6 h-6 cursor-pointer"
-              color='#FF0420'
+      <footer className="fixed bottom-0 w-full">
+        <nav className="mx-4 mb-4">
+          <div className="container flex h-16 items-center justify-around bg-black/90 rounded-full border border-[#E6FF00]/20">
+            <FaChartSimple
+              className="opacity-100 cursor-pointer w-6 h-6 text-[#E6FF00] hover:drop-shadow-[0_0_8px_#E6FF00] transition-all"
+              onClick={() => handleClick("chart", "Leaderboard Coming Soon")}
             />
-            {active === "home" && (
-              <div className="absolute -top-1 right-0 w-1.5 h-1.5 rounded-full bg-red-500" />
-            )}
-          </Link>
-          <Menu 
-            className="w-6 h-6 cursor-pointer"
-           color='#FFA8A8'
-            onClick={() => handleClick("todo", "Tasks Coming Soon")}
-          />
+            <Link 
+              href="/gamepage" 
+              className="relative"
+              onClick={() => setActive("home")}
+            >
+              <Home 
+                className={`w-6 h-6 cursor-pointer transition-all ${
+                  active === "home" 
+                    ? "text-[#E6FF00] drop-shadow-[0_0_8px_#E6FF00]" 
+                    : "text-[#E6FF00]"
+                }`}
+              />
+              {active === "home" && (
+                <div className="absolute -top-1 right-0 w-1.5 h-1.5 rounded-full bg-[#E6FF00] animate-pulse" />
+              )}
+            </Link>
+            <Menu 
+              className="w-6 h-6 cursor-pointer text-[#E6FF00] hover:drop-shadow-[0_0_8px_#E6FF00] transition-all"
+              onClick={() => handleClick("todo", "Tasks Coming Soon")}
+            />
+          </div>
         </nav>
       </footer>
     </>
   )
 }
+

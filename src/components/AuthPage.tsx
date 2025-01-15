@@ -36,7 +36,9 @@ const GameSelectionUI : React.FC<GameSelectionUIProps> = ({ isLoading, selectedG
         muted
         className="h-full w-full bg-transparent"
       />
-          
+        <div className=' text-sm absolute inset-0 flex gap-2  flex-col items-center justify-center text-center'> THE BACKEND OF<br/> GAMING
+        <Link href='https://eclipsechain.org/'><button className='px-4 py-1 rounded-[11px] border-2 border-[#E6FF00] bg-black text-[#E6FF00] text-md font-bold hover:bg-[#E6FF00] hover:text-black transition-colors'>WEB</button></Link>
+        </div>  
             </div>
   
             {/* List Progress */}
@@ -47,22 +49,26 @@ const GameSelectionUI : React.FC<GameSelectionUIProps> = ({ isLoading, selectedG
             </div>
   
             {/* Trailblazer Section */}
-            {/* <div className="mt-8">
-              <div className="flex items-center justify-between rounded-xl bg-[#0A1238] p-4">
-                <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-lg bg-blue-500/20 bg-center  bg-cover bg-[url('/gameimg/cat.png')]"></div>
-                  <span className="font-semibold">Paws of Fury</span>
-                </div>
-                <button className="rounded-lg border border-[#4241ff] px-6 py-2 text-sm font-medium text-[#4241ff]"
-                onClick={() => handleGameSelect("unity4")}
-                disabled={isLoading}>
-                  PLAY
-                </button>
-              </div>
-            </div>
-
-
             <div className="mt-8">
+  <div className="flex items-center justify-between rounded-lg bg-trnasparent p-4">
+    <div className="flex items-center gap-4">
+      <div className="h-[60px] w-[60px] rounded-lg bg-[url('/gameimg/EclipseInvader_icon.png')] bg-cover border-2 border-[#E6FF00] flex items-center justify-center">
+       
+      </div>
+      <span className="font-semibold text-white text-md">Eclipse Invader</span>
+    </div>
+    <button
+      onClick={() => onGameSelect("unity3")}
+      disabled={isLoading}
+      className="px-4 py-1 rounded-[11px] border-2 border-[#E6FF00] bg-black text-[#E6FF00] text-md font-bold hover:bg-[#E6FF00] hover:text-black transition-colors"
+    >
+      PLAY
+    </button>
+  </div>
+</div>
+
+
+              {/*<div className="mt-8">
               <div className="flex items-center justify-between rounded-xl bg-[#0A1238] p-4">
                 <div className="flex items-center gap-4">
                   <div className="h-12 w-12 rounded-lg bg-blue-500/20 bg-center  bg-cover bg-[url('/gameimg/baseballz1.png')]"></div>
