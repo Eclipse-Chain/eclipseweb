@@ -49,7 +49,7 @@ const GameSelectionUI : React.FC<GameSelectionUIProps> = ({ isLoading, selectedG
             </div>
   
             {/* Trailblazer Section */}
-            <div className="mt-8">
+            <div className="mt-4">
   <div className="flex items-center justify-between rounded-lg bg-trnasparent p-4">
     <div className="flex items-center gap-4">
       <div className="h-[60px] w-[60px] rounded-lg bg-[url('/gameimg/EclipseInvader_icon.png')] bg-cover border-2 border-[#E6FF00] flex items-center justify-center">
