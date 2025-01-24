@@ -16,7 +16,7 @@ function Header() {
 
   return (
     <main className='bg-transparent'>
-    <div className="flex justify-center p-4 py-8 bg-transparent gap-5 items-center  w-[80%] mx-auto">
+    <div className="flex justify-center p-4 py-4 bg-transparent gap-5 items-center  w-[80%] mx-auto">
        <div className="flex items-center gap-2">
               <Image
               src='/logos/RL.png'

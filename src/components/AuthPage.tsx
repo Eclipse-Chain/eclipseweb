@@ -19,7 +19,7 @@ const GameSelectionUI : React.FC<GameSelectionUIProps> = ({ isLoading, selectedG
 
   return (
     <>
-      <div className="min-h-screen text-white bg-black bg-[url('/bg/BG_eclipse.png')] bg-cover">
+      <div className="min-h-screen text-white bg-black  bg-cover">
         <div className="mx-auto max-w-sm">
           <div className="relative min-h-screen px-6 py-4">
             {/* Top Navigation */}
