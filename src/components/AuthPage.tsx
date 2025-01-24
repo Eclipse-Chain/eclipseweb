@@ -19,7 +19,7 @@ const GameSelectionUI : React.FC<GameSelectionUIProps> = ({ isLoading, selectedG
 
   return (
     <>
-      <div className="min-h-screen text-white bg-black bg-[url('/bg/shades.png')] bg-cover">
+      <div className="min-h-screen text-white bg-black bg-[url('/bg/BG_eclipse.png')] bg-cover">
         <div className="mx-auto max-w-sm">
           <div className="relative min-h-screen px-6 py-4">
             {/* Top Navigation */}
@@ -29,14 +29,14 @@ const GameSelectionUI : React.FC<GameSelectionUIProps> = ({ isLoading, selectedG
             <div className="relative mt-12">
               
                   <video
-        src="/logos/vedio.mp4"
+        src="/bg/EclipseVid.mp4"
         loop
         playsInline
         autoPlay
         muted
-        className="h-full w-full bg-transparent"
+        className="mix-blend-lighten h-full w-full bg-transparent"
       />
-        <div className=' text-sm absolute inset-0 flex gap-2  flex-col items-center justify-center text-center'> THE BACKEND OF<br/> GAMING
+        <div className=' text-xl font-bold absolute inset-0 flex gap-2  flex-col items-center justify-center text-center'> THE BACKEND OF<br/> GAMING
         <Link href='https://eclipsechain.org/'><button className='px-4 py-1 rounded-[11px] border-2 border-[#E6FF00] bg-black text-[#E6FF00] text-md font-bold hover:bg-[#E6FF00] hover:text-black transition-colors'>WEB</button></Link>
         </div>  
             </div>
