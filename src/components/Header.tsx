@@ -1,49 +1,37 @@
-import React, { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
-import { Suspense } from 'react';
-import { AutoConnect } from "thirdweb/react";
+import React from 'react';
 import Image from "next/image";
-import { useActiveAccount } from "thirdweb/react";
-import { shortenAddress } from "thirdweb/utils";
-import { Button } from "@headlessui/react";
-import { client, wallet } from "@/app/constant";
-import { main } from 'framer-motion/client';
-
-
-
 
 function Header() {
-
   return (
-    <main className='bg-transparent'>
-    <div className="flex justify-center p-4 py-4 bg-transparent gap-5 items-center  w-[80%] mx-auto">
-       <div className="flex items-center gap-2">
-              <Image
-              src='/logos/RL.png'
-              alt=''
-              height={23}
-              width={33}
-              />
-            </div>
-            <div className="flex items-center gap-2">
-              <Image
-              src='/logos/Eclipse_icon.png'
-              alt=''
-              height={60}
-              width={60}
-              />
-            </div>
-            <div className="text-[#FF0000] text-xs flex flex-col items-end gap-2">
-            <Image
-              src='/logos/thirdweb-symbol-colour 2.png'
-              alt=''
-              height={20}
-              width={33}
-              />
-            </div>
-          </div>
-          </main>
-)
+    <div className="flex justify-between items-center py-4 bg-transparent w-full">
+      <div className="flex items-center">
+        <Image
+          src='/logos/RL.png'
+          alt='RL Logo'
+          height={23}
+          width={33}
+        />
+      </div>
+      
+      <div className="flex items-center">
+        <Image
+          src='/logos/Eclipse_icon.png'
+          alt='Eclipse Logo'
+          height={60}
+          width={60}
+        />
+      </div>
+      
+      <div className="flex items-center">
+        <Image
+          src='/logos/thirdweb-symbol-colour 2.png'
+          alt='Thirdweb Logo'
+          height={20}
+          width={33}
+        />
+      </div>
+    </div>
+  );
 }
 
-export default Header
+export default Header;
