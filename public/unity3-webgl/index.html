@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity Web Player | Eclipse Invader</title>
+    <title>Unity WebGL Player | EclipseRunner</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -18,13 +18,19 @@
       </div>
       <div id="unity-warning"> </div>
       <div id="unity-footer">
-        <div id="unity-logo-title-footer"></div>
+        <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Eclipse Invader</div>
+        <div id="unity-build-title">EclipseRunner</div>
       </div>
     </div>
     <script>
+
+      var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      var warningBanner = document.querySelector("#unity-warning");
 
       // Shows a temporary message banner/ribbon for a few seconds, or
       // a permanent error message on top of the canvas if type=='error'.
@@ -33,7 +39,6 @@
       // way that non-critical warnings and error messages are presented to the
       // user.
       function unityShowBanner(msg, type) {
-        var warningBanner = document.querySelector("#unity-warning");
         function updateBannerVisibility() {
           warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
         }
@@ -52,16 +57,15 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Eclipse Invader.loader.js";
+      var loaderUrl = buildUrl + "/EclipseWeb-GL.loader.js";
       var config = {
-        arguments: [],
-        dataUrl: buildUrl + "/Eclipse Invader.data",
-        frameworkUrl: buildUrl + "/Eclipse Invader.framework.js",
-        codeUrl: buildUrl + "/Eclipse Invader.wasm",
+        dataUrl: buildUrl + "/EclipseWeb-GL.data",
+        frameworkUrl: buildUrl + "/EclipseWeb-GL.framework.js",
+        codeUrl: buildUrl + "/EclipseWeb-GL.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "RuptureLabs",
-        productName: "Eclipse Invader",
-        productVersion: "1",
+        productName: "EclipseRunner",
+        productVersion: "1.8",
         showBanner: unityShowBanner,
       };
 
@@ -79,7 +83,7 @@
         meta.name = 'viewport';
         meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
         document.getElementsByTagName('head')[0].appendChild(meta);
-        document.querySelector("#unity-container").className = "unity-mobile";
+        container.className = "unity-mobile";
         canvas.className = "unity-mobile";
 
         // To lower canvas resolution on mobile devices to gain some
@@ -89,23 +93,23 @@
 
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+
         canvas.style.width = "500px";
         canvas.style.height = "900px";
       }
 
-      document.querySelector("#unity-loading-bar").style.display = "block";
+      loadingBar.style.display = "block";
 
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
-          document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
+          progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
-                document.querySelector("#unity-loading-bar").style.display = "none";
-                document.querySelector("#unity-fullscreen-button").onclick = () => {
-                  unityInstance.SetFullscreen(1);
+                loadingBar.style.display = "none";
+                fullscreenButton.onclick = () => {
+                  document.makeFullscreen('unity-container');
                 };
-
               }).catch((message) => {
                 alert(message);
               });
