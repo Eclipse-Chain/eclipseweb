@@ -58,9 +58,9 @@ const GameSelectionUI: React.FC<GameSelectionUIProps> = ({ isLoading, selectedGa
               <div className="flex items-center justify-between p-4">
                 <div className="flex items-center gap-4">
                   <div className="h-[60px] w-[60px] rounded-lg bg-cover border-2 border-[#E6FF00] flex items-center justify-center"
-                       style={{backgroundImage: "url('/gameimg/EclipseInvader_icon.png')"}}> 
+                       style={{backgroundImage: "url('/gameimg/EclipseJumper_icon.jpg')"}}> 
                   </div>
-                  <span className="font-semibold text-white text-md">Eclipse Invader</span>
+                  <span className="font-semibold text-white text-md">Eclipse Jumper</span>
                 </div>
                 <button
                   onClick={() => onGameSelect("unity3")}
